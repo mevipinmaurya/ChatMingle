@@ -1,0 +1,26 @@
+html{
+  scrollbar-width: none;
+}
+
+
+#left {
+  overflow-y: scroll;
+}
+
+#left::-webkit-scrollbar {
+  display: none;
+}
+#left{
+  scrollbar-width: none;
+}
+
+#rightMsgBox {
+  overflow-y: scroll;
+}
+
+#rightMsgBox::-webkit-scrollbar {
+  display: none;
+}
+#rightMsgBox{
+  scrollbar-width: none;
+}
