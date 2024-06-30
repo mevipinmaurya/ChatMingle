@@ -1,6 +1,6 @@
 import React from 'react'
 import UserBox from './UserBox'
-import "./Left.css"
+import "./style.css"
 
 const Left = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Left.css"
+import "./style.css"
 
 const MessageBox = () => {
     return (
