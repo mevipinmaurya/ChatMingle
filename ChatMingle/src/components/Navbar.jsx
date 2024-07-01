@@ -1,6 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { IoMdLogOut } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
+
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        if (localStorage.getItem("token")) {
+            navigate("/");
+            localStorage.removeItem("token");
+        }
+    }
+
     return (
         <div>
             <div className="navbar bg-[whitesmoke] shadow-md rounded-2xl">
@@ -22,14 +36,8 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li className='hover:bg-[lightgrey] rounded-lg'>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li className='hover:bg-[lightgrey] rounded-lg'><a>Settings</a></li>
-                            <li className='hover:bg-[lightgrey] rounded-lg'><a>Logout</a></li>
+                            <li className='hover:bg-[lightgrey] rounded-lg'><a><CgProfile />Profile</a></li>
+                            <li className='hover:bg-[lightgrey] rounded-lg'><a onClick={handleLogout}><IoMdLogOut />Logout</a></li>
                         </ul>
                     </div>
                 </div>

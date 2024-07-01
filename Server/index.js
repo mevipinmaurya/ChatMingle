@@ -4,28 +4,28 @@ import cors from "cors"
 import http, { createServer } from "http"
 import mongoose from "mongoose"
 import userRouter from "./routes/UserRoute.js"
+import { connectDb } from "./config/db.js"
 
 const app = express();
 const port = 3000 || process.env.PORT;
+
+// Middleware
 app.use(cors())
 app.use(express.json())
 
 // Database connection
-try {
-    mongoose.connect("mongodb+srv://vipinpoko:007007007@cluster0.9jlhcty.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-    console.log("Connection successfull")
-} catch (error) {
-    console.log(error);
-}
+connectDb();
+
+
+// API Endpoints
+app.use("/api/user", userRouter)
+
+
 
 
 app.get("/", (req, res)=>{
     res.send("I am groot")
 })
-
-
-// API
-app.use("/api/user", userRouter)
 
 
 const server = createServer(app);
