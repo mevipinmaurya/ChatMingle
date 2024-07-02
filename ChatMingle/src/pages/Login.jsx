@@ -11,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const [token, setToken] = useState("");
+    const [name, setName] = useState("");
 
     const nevigate = useNavigate();
 
@@ -21,7 +22,9 @@ const Login = () => {
             if(response.data.success){
                 nevigate("/chat")
                 setToken(response.data.token);
+                setName(response.data.name)
                 localStorage.setItem("token", response.data.token);
+                localStorage.setItem("name", response.data.name);
             }else{
                 console.log(response.data.message)
             }
@@ -31,7 +34,9 @@ const Login = () => {
             if(response.data.success){
                 nevigate("/chat")
                 setToken(response.data.token);
+                setName(username)
                 localStorage.setItem("token", response.data.token);
+                localStorage.setItem("name", username);
             }else{
                 console.log(response.data.message)
             }
@@ -41,7 +46,7 @@ const Login = () => {
 
     return (
         <div className='w-full bg-[#005372] flex justify-center items-center'>
-            <div className='w-[40%] h-screen flex justify-center items-center'>
+            <div className='w-[90%] md:w-[40%] h-screen flex justify-center items-center'>
                 <div className='w-full border-[2px] bg-[whitesmoke] p-10 rounded-xl flex flex-col gap-3'>
                     <div className='mb-4'>
                         <p className='text-3xl font-bold'>{userReg}</p>

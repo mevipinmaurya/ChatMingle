@@ -12,6 +12,7 @@ const Navbar = () => {
         if (localStorage.getItem("token")) {
             navigate("/");
             localStorage.removeItem("token");
+            localStorage.removeItem("name");
         }
     }
 

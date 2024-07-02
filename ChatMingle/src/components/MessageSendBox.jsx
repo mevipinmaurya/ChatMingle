@@ -2,6 +2,7 @@ import React from 'react'
 import { IoSend } from "react-icons/io5";
 
 const MessageSendBox = () => {
+    
     return (
         <>
             <div className='w-full flex'>

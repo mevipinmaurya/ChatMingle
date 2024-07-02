@@ -83,6 +83,7 @@ const userLogin = async (req, res) => {
         const token = createToken(user._id);
         return res.json({
             success: true,
+            name : user.username,
             token
         })
     } catch (error) {
